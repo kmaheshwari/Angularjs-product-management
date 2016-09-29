@@ -34,7 +34,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor='#product of products'>
+                  <tr *ngFor='#product of products | productFilter: listFilter'>
                       <td>
                           <img *ngIf='showImage'
                                [src]='product.imageUrl'
@@ -52,7 +52,6 @@
                       <td>{{ product.releaseDate }}</td>
                       <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
                       <td>
-                        {{product.starRating}}
                           <ai-star [rating]='product.starRating'
                                   (ratingClicked)='onRatingClicked($event)'>
                           </ai-star>

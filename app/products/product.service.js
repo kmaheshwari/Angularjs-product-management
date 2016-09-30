@@ -35,6 +35,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                         .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
                         .catch(this.handleError);
                 };
+                ProductService.prototype.getProduct = function (productId) {
+                    return this.getProducts()
+                        .map(function (response) { return response.find(function (p) { return p.productId === productId; }); });
+                };
                 ProductService.prototype.handleError = function (error) {
                     console.error(error);
                     return Observable_1.Observable.throw(error.json().error || 'Server error');

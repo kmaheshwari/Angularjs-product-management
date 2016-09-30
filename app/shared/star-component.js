@@ -21,6 +21,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             StarComponent = (function () {
                 function StarComponent() {
                     this.ratingClicked = new core_1.EventEmitter();
+                    this.showRate = new core_1.EventEmitter();
                 }
                 StarComponent.prototype.ngOnChanges = function () {
                     // Convert x out of 5 starts
@@ -29,6 +30,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 };
                 StarComponent.prototype.onClick = function () {
                     this.ratingClicked.emit("The rating " + this.rating + " was clicked!");
+                    this.showRate.emit("The rating is " + this.rating);
                 };
                 __decorate([
                     core_1.Input(), 
@@ -38,6 +40,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)
                 ], StarComponent.prototype, "ratingClicked", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], StarComponent.prototype, "showRate", void 0);
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'ai-star',
